@@ -5,6 +5,7 @@ plugins {
     id("kotlin-android")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -80,7 +81,7 @@ dependencies {
     // For instrumented tests.
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.38.1")
     // ...with Kotlin.
-    kspAndroidTest("com.google.dagger:hilt-android-compiler:2.38.1")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.38.1")
 
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -90,7 +91,8 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.7.2")
 
     // Moshi
-    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    // implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
+    ksp("com.squareup.retrofit2:converter-moshi:2.9.0")
 
     // Kotlin Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
@@ -118,8 +120,8 @@ dependencies {
     // Dependency injection with Hilt
     implementation("com.google.dagger:hilt-android:2.47")
     implementation("com.google.dagger:dagger:2.47")
-    ksp("com.google.dagger:hilt-compiler:2.47")
+    kapt("com.google.dagger:hilt-compiler:2.47")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-    ksp("androidx.hilt:hilt-compiler:1.0.0")
+    kapt("androidx.hilt:hilt-compiler:1.0.0")
 
 }
