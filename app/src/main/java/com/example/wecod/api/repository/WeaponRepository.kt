@@ -5,7 +5,7 @@ import com.example.wecod.interfaces.WeaponTask
 import com.example.wecod.model.Weapon
 import javax.inject.Inject
 
-class WeaponRepository @Inject constructor() : WeaponTask{
+class WeaponRepository @Inject constructor() : WeaponTask {
     // override suspend fun getAllWeapons() : List<Weapon> = FAKE_WEAPONS.map { it }
     override suspend fun getAllWeapons(): List<Weapon> {
         TODO("Not yet implemented")
