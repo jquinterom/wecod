@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.wecod.ui.theme.WeCodTheme
-import com.example.wecod.ui.theme.composables.WeaponCard
+import com.example.wecod.ui.composables.WeaponCard
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.example.wecod.ui.theme.composables
+package com.example.wecod.ui.composables
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
