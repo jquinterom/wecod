@@ -6,6 +6,7 @@ plugins {
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -64,6 +65,8 @@ dependencies {
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+
+
 
     testImplementation("junit:junit:4.13.2")
     // Test coroutine dispatcher
@@ -124,4 +127,6 @@ dependencies {
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
 
-}
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.2.2"))
+    implementation("com.google.firebase:firebase-messaging-ktx:23.2.1")}

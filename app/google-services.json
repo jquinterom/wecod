@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "26337260536",
+    "project_id": "wecod-80e16",
+    "storage_bucket": "wecod-80e16.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26337260536:android:13bd0f45138ee588e31c0d",
+        "android_client_info": {
+          "package_name": "com.example.wecod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26337260536-tkd5sn45phpcdsd76drmse0o0rl7jken.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAotRxTW0BfetQu3uWTmcX9QLQTFdSnWxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26337260536-tkd5sn45phpcdsd76drmse0o0rl7jken.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
