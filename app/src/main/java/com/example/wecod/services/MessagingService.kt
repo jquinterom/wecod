@@ -13,7 +13,6 @@ import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.getSystemService
 import com.example.wecod.MainActivity
 import com.example.wecod.R
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -83,14 +82,14 @@ class MessagingService : FirebaseMessagingService() {
     private fun createNotificationChannel() {
         Log.d(TAG, "Notification Manager")
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            Log.d(TAG, "SDK_INT 26+ is OK")
             val name = "wecodnotificationchannel"
             val description = "This is the notification channel for WeCod app"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel("Wecod", name, importance)
+            val channel = NotificationChannel("WeCod", name, importance)
             channel.description = description
             val notificationManager = getSystemService(NotificationManager::class.java)
             notificationManager!!.createNotificationChannel(channel)
+            Log.d(TAG, "Notification created")
         }
     }
 }
