@@ -5,5 +5,6 @@ data class Weapon(
     val name: String,
     val category: String,
     val rate: Float,
-    val imgUrl: String
+    val imgUrl: String,
+    val gameMode: String,
 )

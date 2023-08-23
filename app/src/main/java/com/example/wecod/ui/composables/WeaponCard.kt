@@ -10,27 +10,34 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import coil.compose.AsyncImagePainter
 import coil.compose.SubcomposeAsyncImage
 import coil.compose.SubcomposeAsyncImageContent
-import com.example.wecod.R
+import com.example.wecod.model.Weapon
 import com.example.wecod.ui.theme.WeCodTheme
+import com.example.wecod.viewmodel.WeaponViewModel
 
 @Composable
-fun WeaponCard() {
+fun WeaponCard(fakeWeapon: Weapon) {
     Card(
         modifier = Modifier
             .padding(4.dp)
@@ -55,7 +62,7 @@ fun WeaponCard() {
                         bottom.linkTo(parent.bottom)
                     }
                     .clip(shape = RoundedCornerShape(5.dp)),
-                model = "https://i.ytimg.com/vi/xRp0l_qZi9Y/maxresdefault.jpg",
+                model = fakeWeapon.imgUrl,
                 contentDescription = null,
                 alignment = Alignment.TopStart,
             ) {
@@ -80,45 +87,63 @@ fun WeaponCard() {
                         start.linkTo(image.end)
                         top.linkTo(parent.top)
                         bottom.linkTo(parent.bottom)
-                    }
+                    },
+                fakeWeapon
             )
 
-            Stars(
+            Rate(
                 modifier = Modifier
                     .padding(bottom = 2.dp, end = 4.dp)
                     .constrainAs(rate) {
                         end.linkTo(parent.end)
                         bottom.linkTo(parent.bottom)
-                    }
+                    },
+                fakeWeapon
             )
         }
     }
 }
 
 @Composable
-fun DescriptionWeapon(modifier: Modifier) {
+fun DescriptionWeapon(modifier: Modifier, fakeWeapon: Weapon) {
     Column(
         modifier = modifier
     ) {
-        Text(text = "DQL", modifier = Modifier.fillMaxHeight())
+        Text(text = fakeWeapon.name, modifier = Modifier.fillMaxHeight())
+        Text(text = fakeWeapon.category, modifier = Modifier.fillMaxHeight())
         Text(
+            text = fakeWeapon.gameMode,
             modifier = Modifier.fillMaxHeight(),
-            text = "Sniper"
+            style = TextStyle(
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Light
+            )
         )
+
     }
 }
 
 @Composable
-fun Stars(modifier: Modifier) {
+fun Rate(modifier: Modifier, fakeWeapon: Weapon) {
     Row(
         modifier = modifier
     ) {
+        for (a in fakeWeapon.rate.toInt()..4) {
+            Icon(
+                Icons.Rounded.Star,
+                contentDescription = null,
+                tint = Color.Black,
+            )
+        }
+
         LazyRow {
-            items(5) {
+            items(fakeWeapon.rate.toInt()) {
                 Icon(
-                    painter = painterResource(id = R.drawable.baseline_star_border_24),
-                    contentDescription = null
-                )
+                    Icons.Rounded.Star,
+                    contentDescription = null,
+                    tint = Color.Yellow,
+                    )
             }
         }
     }
@@ -128,6 +153,6 @@ fun Stars(modifier: Modifier) {
 @Composable
 fun WeaponCardPreview() {
     WeCodTheme {
-        WeaponCard()
+        WeaponCard(WeaponViewModel().fakeWeapon)
     }
 }

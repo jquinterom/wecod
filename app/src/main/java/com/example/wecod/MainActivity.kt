@@ -20,6 +20,7 @@ import com.example.wecod.ui.theme.WeCodTheme
 import com.example.wecod.ui.composables.WeaponCard
 import dagger.hilt.android.AndroidEntryPoint
 import android.Manifest
+import com.example.wecod.viewmodel.WeaponViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -34,7 +35,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     LazyColumn {
                         items(10) {
-                            WeaponCard()
+                            WeaponCard(WeaponViewModel().fakeWeapon)
                         }
                     }
                 }
@@ -89,6 +90,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     WeCodTheme {
-        WeaponCard()
+        WeaponCard(WeaponViewModel().fakeWeapon)
     }
 }

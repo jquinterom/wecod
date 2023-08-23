@@ -19,6 +19,7 @@ class WeaponViewModel @Inject constructor(
     var weaponList = mutableStateOf<List<Weapon>>(listOf())
         private set
 
+    val fakeWeapon = Weapon(1,"DLQ", "Sniper", 3f, "https://i.ytimg.com/vi/xRp0l_qZi9Y/maxresdefault.jpg", "MJ")
 
     init {
         getAllWeapons()
