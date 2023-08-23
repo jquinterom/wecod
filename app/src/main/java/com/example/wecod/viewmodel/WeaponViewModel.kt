@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WeaponViewModel @Inject constructor(
-    // private val weaponRepository: WeaponTask,
+    private val weaponRepository: WeaponTask,
 ) : ViewModel() {
     var weaponList = mutableStateOf<List<Weapon>>(listOf())
         private set

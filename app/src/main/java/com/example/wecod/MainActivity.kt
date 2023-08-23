@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     LazyColumn {
                         items(10) {
-                            WeaponCard(WeaponViewModel().fakeWeapon)
+                            WeaponCard()
                         }
                     }
                 }
@@ -90,6 +90,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     WeCodTheme {
-        WeaponCard(WeaponViewModel().fakeWeapon)
+        WeaponCard()
     }
 }

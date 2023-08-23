@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImagePainter
 import coil.compose.SubcomposeAsyncImage
 import coil.compose.SubcomposeAsyncImageContent
@@ -37,7 +38,9 @@ import com.example.wecod.ui.theme.WeCodTheme
 import com.example.wecod.viewmodel.WeaponViewModel
 
 @Composable
-fun WeaponCard(fakeWeapon: Weapon) {
+fun WeaponCard(
+    viewModel: WeaponViewModel = hiltViewModel()
+) {
     Card(
         modifier = Modifier
             .padding(4.dp)
@@ -62,7 +65,7 @@ fun WeaponCard(fakeWeapon: Weapon) {
                         bottom.linkTo(parent.bottom)
                     }
                     .clip(shape = RoundedCornerShape(5.dp)),
-                model = fakeWeapon.imgUrl,
+                model = viewModel.fakeWeapon.imgUrl,
                 contentDescription = null,
                 alignment = Alignment.TopStart,
             ) {
@@ -88,7 +91,7 @@ fun WeaponCard(fakeWeapon: Weapon) {
                         top.linkTo(parent.top)
                         bottom.linkTo(parent.bottom)
                     },
-                fakeWeapon
+                viewModel.fakeWeapon
             )
 
             Rate(
@@ -98,7 +101,7 @@ fun WeaponCard(fakeWeapon: Weapon) {
                         end.linkTo(parent.end)
                         bottom.linkTo(parent.bottom)
                     },
-                fakeWeapon
+                viewModel.fakeWeapon
             )
         }
     }
@@ -153,6 +156,6 @@ fun Rate(modifier: Modifier, fakeWeapon: Weapon) {
 @Composable
 fun WeaponCardPreview() {
     WeCodTheme {
-        WeaponCard(WeaponViewModel().fakeWeapon)
+        WeaponCard()
     }
 }

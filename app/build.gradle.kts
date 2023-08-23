@@ -94,8 +94,7 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.7.2")
 
     // Moshi
-    // implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
-    ksp("com.squareup.retrofit2:converter-moshi:2.9.0")
+    implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
 
     // Kotlin Navigation
     implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
