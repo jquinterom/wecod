@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">WeCod</string>
+    <string name="there_is_no_internet_connection">There is no internet connection</string>
+    <string name="error_connecting_server">Error connecting server</string>
+    <string name="there_was_an_error_users">There was an error (custom weapons)</string>
 </resources>

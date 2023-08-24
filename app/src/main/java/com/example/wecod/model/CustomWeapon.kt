@@ -7,16 +7,16 @@ import kotlinx.parcelize.Parcelize
 
 @Entity
 @Parcelize
-data class Weapon(
+data class CustomWeapon(
     @PrimaryKey(autoGenerate = false)
     val id: Int,
     val name: String,
-    val category: String,
+    val category: Int,
     val rate: Float,
     val imgUrl: String,
     val gameMode: String,
-) : Parcelable, Comparable<Weapon> {
-    override fun compareTo(other: Weapon): Int =
+) : Parcelable, Comparable<CustomWeapon> {
+    override fun compareTo(other: CustomWeapon): Int =
         if (this.id > other.id) {
             1
         } else {

@@ -1,25 +1,24 @@
 package com.example.wecod.viewmodel
 
 import android.util.Log
-import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.wecod.api.ApiResponseStatus
+import com.example.wecod.constants.FAKE_CUSTOM_WEAPONS
 import com.example.wecod.interfaces.WeaponTask
-import com.example.wecod.model.Weapon
+import com.example.wecod.model.CustomWeapon
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.math.log
 
 @HiltViewModel
 class WeaponViewModel @Inject constructor(
     private val weaponRepository: WeaponTask,
 ) : ViewModel() {
-    var weaponList = mutableStateOf<List<Weapon>>(listOf())
+    var customWeaponList = mutableStateOf<List<CustomWeapon>>(listOf())
         private set
-
-    val fakeWeapon = Weapon(1,"DLQ", "Sniper", 3f, "https://i.ytimg.com/vi/xRp0l_qZi9Y/maxresdefault.jpg", "MJ")
 
     init {
         getAllWeapons()
@@ -27,10 +26,22 @@ class WeaponViewModel @Inject constructor(
 
     private fun getAllWeapons() {
         viewModelScope.launch {
-            // weaponList.value = weaponRepository.getAllWeapons()
-
-            Log.d("weaponList", weaponList.value.toString())
+            handleResponseStatusCustomWeapons(weaponRepository.getAllWeapons())
         }
+
+    }
+
+
+    private fun handleResponseStatusCustomWeapons(
+        apiResponseStatusListCustomWeapon: ApiResponseStatus<List<CustomWeapon>>
+    ) {
+        if (apiResponseStatusListCustomWeapon is ApiResponseStatus.Success) {
+            viewModelScope.launch {
+                val customWeaponApi = apiResponseStatusListCustomWeapon.data.map { it }
+                customWeaponList.value = customWeaponApi
+            }
+        }
+
     }
 
 }

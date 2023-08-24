@@ -1,7 +1,8 @@
 package com.example.wecod.interfaces
 
-import com.example.wecod.model.Weapon
+import com.example.wecod.api.ApiResponseStatus
+import com.example.wecod.model.CustomWeapon
 
 interface WeaponTask {
-    suspend fun getAllWeapons() : List<Weapon>
+    suspend fun getAllWeapons() : ApiResponseStatus<List<CustomWeapon>>
 }
