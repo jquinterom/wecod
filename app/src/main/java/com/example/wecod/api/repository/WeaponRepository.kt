@@ -1,6 +1,5 @@
 package com.example.wecod.api.repository
 
-import android.util.Log
 import com.example.wecod.R
 import com.example.wecod.api.ApiResponseStatus
 import com.example.wecod.api.ApiService

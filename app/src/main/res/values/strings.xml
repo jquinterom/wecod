@@ -3,4 +3,7 @@
     <string name="there_is_no_internet_connection">There is no internet connection</string>
     <string name="error_connecting_server">Error connecting server</string>
     <string name="there_was_an_error_users">There was an error (custom weapons)</string>
+    <string name="time_out">Time out(custom weapons)</string>
+    <string name="error_dialog_title">Oops, something happened</string>
+    <string name="try_again">Try again</string>
 </resources>
