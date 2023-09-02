@@ -1,10 +1,10 @@
 package com.example.wecod.api.dto
 
-import com.example.wecod.model.Category
-
-class WeaponDTO(
+class CustomWeaponDTO(
     val id: Int,
     val name: String,
-    val category : Category,
     val img_url : String,
+    val category : Int,
+    val rate: Float,
+    val game_mode: String
 )

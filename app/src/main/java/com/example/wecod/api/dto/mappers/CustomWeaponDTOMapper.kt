@@ -1,23 +1,23 @@
 package com.example.wecod.api.dto.mappers
 
-import com.example.wecod.api.dto.WeaponDTO
+import com.example.wecod.api.dto.CustomWeaponDTO
 import com.example.wecod.model.CustomWeapon
 
 class CustomWeaponDTOMapper {
-    fun fromCustomWeaponDTOToCustomWeaponDomain(weaponDTO: WeaponDTO): CustomWeapon {
+    fun fromCustomWeaponDTOToCustomWeaponDomain(customWeaponDTO: CustomWeaponDTO): CustomWeapon {
         return CustomWeapon(
-            id = weaponDTO.id,
-            name = weaponDTO.name,
-            category = weaponDTO.category,
-            rate = weaponDTO.rate,
-            imgUrl = weaponDTO.img_url,
-            gameMode = weaponDTO.game_mode
+            id = customWeaponDTO.id,
+            name = customWeaponDTO.name,
+            category = customWeaponDTO.category,
+            rate = customWeaponDTO.rate,
+            imgUrl = customWeaponDTO.img_url,
+            gameMode = customWeaponDTO.game_mode
         )
     }
 
-    fun fromCustomWeaponDTOListToCustomWeaponDomainList(weaponDTOList: List<WeaponDTO>): List<CustomWeapon> {
+    fun fromCustomWeaponDTOListToCustomWeaponDomainList(customWeaponDTOList: List<CustomWeaponDTO>): List<CustomWeapon> {
 
-        return weaponDTOList.map {
+        return customWeaponDTOList.map {
             fromCustomWeaponDTOToCustomWeaponDomain(it)
         }
     }

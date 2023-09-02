@@ -14,5 +14,6 @@ val FAKE_CUSTOM_WEAPON =
 // retrofit
 const val BASE_URL = "https://wecod-backend.onrender.com/api/v1/weapons/"
 const val GET_ALL_CUSTOM_WEAPONS_URL = "customWeapons/"
+const val GET_ALL_WEAPONS_URL = "weapons/"
 
 const val MAX_RATE = 4
