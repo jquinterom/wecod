@@ -18,7 +18,7 @@ import com.example.wecod.services.FirebaseMessageManager
 import com.example.wecod.ui.theme.WeCodTheme
 import dagger.hilt.android.AndroidEntryPoint
 import android.Manifest
-import com.example.wecod.ui.screens.WeaponsListScreen
+import com.example.wecod.ui.screens.CustomWeaponsListScreen
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    WeaponsListScreen()
+                    CustomWeaponsListScreen()
                 }
             }
         }
@@ -84,6 +84,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     WeCodTheme {
-        WeaponsListScreen()
+        CustomWeaponsListScreen()
     }
 }
