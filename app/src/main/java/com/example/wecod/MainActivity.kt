@@ -19,6 +19,7 @@ import com.example.wecod.ui.theme.WeCodTheme
 import dagger.hilt.android.AndroidEntryPoint
 import android.Manifest
 import com.example.wecod.ui.screens.CustomWeaponsListScreen
+import com.example.wecod.ui.screens.WeaponsListScreen
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -31,7 +32,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    CustomWeaponsListScreen()
+                    // CustomWeaponsListScreen()
+                    WeaponsListScreen()
                 }
             }
         }

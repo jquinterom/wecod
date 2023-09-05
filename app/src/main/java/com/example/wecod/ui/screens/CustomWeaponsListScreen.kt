@@ -17,11 +17,11 @@ import com.example.wecod.viewmodel.WeaponViewModel
 fun CustomWeaponsListScreen(
     viewModel: WeaponViewModel = hiltViewModel()
 ) {
-    val weaponsList = viewModel.customWeaponList.value
+    val customWeaponsList = viewModel.customWeaponList.value
     val status = viewModel.status.value
 
     LazyColumn {
-        items(weaponsList) { customWeapon ->
+        items(customWeaponsList) { customWeapon ->
             CustomWeaponCard(customWeapon)
         }
     }
